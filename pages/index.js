@@ -8,24 +8,37 @@ import {globalStyles, navbarStyles} from '../styles/general.jsx';
 export default function Home() {
   const [language, setLanguage] = useState('es');
 
-  const Navbar = <nav className="nav-container">
+  const Navbar = <nav className="nav-fixed">
+                  <div className="nav-container">
+                  <div className="favicon-back"></div>
                     <div className="favicon">
                       MCV
-                      <div className="favicon-back"></div>
                     </div>
                     <div className="nav-text-container">
                       <span className="nav-text">
-                        {language === 'es' ? <>
-                          <Link href="#"><a>Qué hago</a></Link>
-                          <Link href="#"><a>Sobre mi</a></Link>
-                          <Link href="#"><a>Proyectos</a></Link>
-                          <Link href="#"><a>Contacto</a></Link>
-                        </> : <>
-                          <Link href="#"><a>What I do</a></Link>
-                          <Link href="#"><a>About me</a></Link>
-                          <Link href="#"><a>Projects</a></Link>
-                          <Link href="#"><a>Contact</a></Link>
-                        </>}
+                      <Link href="#whatIDo">
+                            <a>
+                              {language === 'es' ? "Qué hago" : "What I do"}
+                            </a>
+                          </Link>
+                          <Link href="#">
+                            <a>
+                              {language === 'es' ? "Sobre mi" : "About me"}
+                            
+                              </a>
+                          </Link>
+                          <Link href="#">
+                            <a>
+                              {language === 'es' ? "Proyectos" : "Projects"}
+                              
+                            </a>
+                          </Link>
+                          <Link href="#">
+                            <a>
+                              {language === 'es' ? "Contacto" : "Contact"}
+                              
+                            </a>
+                          </Link>
                       </span>
                       <span className="lang-container">
                         <span className="lang-item" onClick={() => setLanguage('es')}>
@@ -46,9 +59,14 @@ export default function Home() {
                         </span>
                       </span>
                     </div>
+                  </div>
+                    
                   <style jsx>{navbarStyles}</style>
                   </nav>
 
+const whatIDo = <section className="gen-section" id="whatIDo">
+  what I do
+</section>
 
   return (
     <div>
@@ -60,9 +78,16 @@ export default function Home() {
       {Navbar}
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Holi
-        </h1>
+        <div className="gen-section title">
+          <h1>
+            {language === 'es' ? "¡Hola! Soy" : "Hi! I'm"} Marta 👋
+          </h1>
+          <h2>
+            {language === 'es' ? "Desarrolladora web frontend" : "Frontend web developer"} 👩‍💻
+          </h2>
+        </div>
+        
+        {whatIDo}
       </main>
 
       <footer className={styles.footer}>

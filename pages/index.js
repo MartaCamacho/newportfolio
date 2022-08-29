@@ -24,19 +24,16 @@ export default function Home() {
                           <Link href="#">
                             <a>
                               {language === 'es' ? "Sobre mi" : "About me"}
-                            
-                              </a>
+                            </a>
                           </Link>
                           <Link href="#">
                             <a>
                               {language === 'es' ? "Proyectos" : "Projects"}
-                              
                             </a>
                           </Link>
                           <Link href="#">
                             <a>
                               {language === 'es' ? "Contacto" : "Contact"}
-                              
                             </a>
                           </Link>
                       </span>
@@ -65,7 +62,9 @@ export default function Home() {
                   </nav>
 
 const whatIDo = <section className="gen-section" id="whatIDo">
-  what I do
+  {language === 'es' ? 
+  "" :
+  "I have knowledge in HTML5 / CSS3 / JavaScript / Reactjs / Nodejs / Nextjs and some other cool libraries and frameworks that give me the ability to create, format and layout websites. "}
 </section>
 
   return (

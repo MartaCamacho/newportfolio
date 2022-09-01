@@ -7,6 +7,8 @@ import {globalStyles, navbarStyles} from '../styles/general.jsx';
 
 export default function Home() {
   const [language, setLanguage] = useState('es');
+  const [navOpen, setNavOpen] = useState(false);
+
 
   const Navbar = <nav className="nav-fixed">
                   <div className="nav-container">
@@ -14,9 +16,17 @@ export default function Home() {
                     <div className="favicon">
                       MCV
                     </div>
-                    <div className="nav-text-container">
+                    <div className="hamburger" onClick={() => setNavOpen(!navOpen)}>
+                      <Image
+                            src="/hamburger.png"
+                            alt="<a href='https://www.flaticon.es/iconos-gratis/lista' title='lista iconos'>Lista iconos creados por Freepik - Flaticon</a>"
+                            width={20}
+                            height={15}
+                          />
+                    </div>
+                    <div className={`nav-text-container ${navOpen ? "nav-open" : "nav-closed"}`}>
                       <span className="nav-text">
-                      <Link href="#whatIDo">
+                          <Link href="#whatIDo">
                             <a>
                               {language === 'es' ? "Qué hago" : "What I do"}
                             </a>
@@ -127,7 +137,9 @@ const about = <section className="gen-section" id="about">
         <meta name="description" content="Marta Camacho's portfolio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {Navbar}
+      <header>
+        {Navbar}
+      </header>
 
       <main className={styles.main}>
         {whatIDo}

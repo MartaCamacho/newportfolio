@@ -9,6 +9,15 @@ export const globalStyles = css.global`
         --clr-peach: #F9B8B1;
         --clr-black: #272727;
         --clr-white: #fff;
+
+        --fs-desktop:1.125rem;
+        --fs-mobile: 1.25rem;
+        --fs-h2: 3rem;
+        --fs-h3: 1.5rem;
+        --fs-h4: 1.125rem;
+        --fs-h2-mobile: 2.25rem;
+        --fs-h3-mobile: 1.25rem;
+        --fs-h4-mobile: 1rem;
     }
     .gen-section {
         width: 100%;
@@ -40,20 +49,26 @@ export const globalStyles = css.global`
     }
 
     .what-i-do-text {
-        width: 50%;
+        width: 60%;
     }
     
     .what-i-do-text h1 {
-        font-size: 50px;
+        font-size: 4rem;
         margin: 0px;
     }
 
     .what-i-do-text h2 {
-        font-size: 35px;
+        font-size: var(--fs-h2);
+        margin: 20px 0;
+        padding: 5px;
+        font-weight: normal;
+        background-color: var(--clr-pink);
+        border: 2px solid var(--clr-peach);
     }
     
     .what-i-do-description {
-        font-size: 30px;
+        font-size: var(--fs-h3);
+        max-width: 500px;
     }
     
     /* / what I do section */
@@ -69,7 +84,50 @@ export const globalStyles = css.global`
         width: 50%;
     }
 
+    .about-content h3 {
+        font-size: var(--fs-h3);
+        margin: 0;
+    }
+
+    .about-content h4 {
+        font-size: var(--fs-h4);
+        border: 1px solid var(--clr-black);
+        background-color: var(--clr-pink);
+        padding: 5px;
+        margin: 10px 0 0;
+    }
+
     /* / about section */
+
+    @media (max-width: 770px) {
+
+        .gen-section {
+            padding: 2rem 1rem;
+        }
+
+        /* what i do */
+        #whatIDo .content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .what-i-do-text {
+            width: 100%;
+        }
+
+        .what-i-do-text h1 {
+            font-size: 3rem;
+        }
+    
+        .what-i-do-text h2 {
+            font-size: var(--fs-h2-mobile);
+        }
+        
+        .what-i-do-description {
+            font-size: var(--fs-h3-mobile);
+            margin-bottom: 2rem;
+        }
+    }
 `;
 
 export const navbarStyles = css`
@@ -81,15 +139,16 @@ export const navbarStyles = css`
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
-    position: relative;
-    z-index: 20;
-}
-
-.nav-fixed {
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
+    z-index: 20;
+    width: 100%;
+}
+
+.nav-fixed {
+    position: relative;
 }
 
 .favicon {
@@ -114,6 +173,10 @@ export const navbarStyles = css`
     bottom: 0.75rem;
 }
 
+.hamburger {
+    display: none;
+}
+
 .nav-text-container {
     display: flex;
     align-items: center;
@@ -133,5 +196,41 @@ export const navbarStyles = css`
     margin: 0 5px;
     display: flex;
     align-items: center;
+}
+
+@media (max-width: 770px) {
+    .nav-text-container, 
+    .nav-text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hamburger {
+        display: inline-block;
+    }
+
+    .nav-closed {
+        display: none;
+    }
+
+    .nav-open {
+        position: absolute;
+        background-color: var(--clr-green);
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px);
+    }
+
+    .nav-open a {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lang-container {
+        height: 60px;
+    }
 }
 `;

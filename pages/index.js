@@ -8,7 +8,47 @@ import {globalStyles, navbarStyles} from '../styles/general.jsx';
 export default function Home() {
   const [language, setLanguage] = useState('es');
   const [navOpen, setNavOpen] = useState(false);
+  const [projects, setProjects] = useState([
+    {title: "Gluten free Web",
+    description: "Have you ever wondered anything about coeliac desease? Did you ever feel alone on this? Do you or some one importante for you just become diagnosed? On this web you will be able to find my life experience and some glutenfree recipes to start your journey with me, you are not alone on this!",
+    technologies: "HTML5, CSS3, JavaScript, GitHub",
+    image: "/gluten.jpg",
+    link:"https://martacamacho.github.io/M1-GlutenFreeWeb/"},
+    {title: "I<3Hack",
+    description: "I <3 HACK, is the ideal application to find that better half you are looking for to plant your garden of love. An application with the function of finding that person related to you, do not get carried away only by physical appearance but also you will complete a test to find the best possible compatibility with any user of the platform. They say that love is blind ... let's check it then. You also have the events tab available, where the places and the date will appear where you can spend a pleasant evening with a random person for a limited time, on a speed dating format. Your heart is a code, let them hack you.",
+    technologies: "HTML5, CSS3, JavaScript, React, NodeJS, Express, MongoDB, Axios, GitHub",
+    image: "/ilovehack.jpg",
+    link:"https://i-love-hack.herokuapp.com/"},
+    {title: "FitLine",
+    description: "Fitline was born during the covid restrictions for sport lovers who don't want to leave their sport routine behind. In this App you will find the best home workouts, a filtered search between them and a montly calendar that will help you achieve the perfect body for this summer. Also, you will be able to save the videos you loved on your profile, as well as add videos to the community with your favourite workouts.",
+    technologies: "HTML5, CSS3, JavaScript, React, NodeJS, Express, MongoDB, Axios, GitHub",
+    image: "/fitline.jpg",
+    link:"https://fitline.herokuapp.com/"},
+    {title: "Movie Finder",
+    description: "Movie finder is the ideal app for finding that movie you are thinking of, save it as favourite and see its details, all in one place!",
+    technologies: "HTML5, CSS3, JavaScript, React (with hooks), Fetch, GitHub",
+    image: "/movie.jpg",
+    link:"https://movie---finder.herokuapp.com/"},
+    {title: "Not Yet Website",
+    description: "This is a personal website for a comic trio, with youtube and spotify embeded.",
+    technologies: "NextJs (with hooks), styled components, JavaScript, CSS3, react scroll, Github, Netlify",
+    image: "/notyet.jpg",
+    link:"http://www.notyet.es/"},
+    {title: "rALo Website",
+    description: "This is a simple presentation website I have made for a friend, SEO friendly.",
+    technologies: "NextJs (with hooks), JavaScript, CSS3, HTML5, Github",
+    image: undefined,
+    link:""},
+  ]);
 
+  const navLink = (url, spa, eng) => <>
+    <Link href={`#${url}`}>
+                    <a onClick={() => setNavOpen(false)}>
+                      {language === 'es' ? spa : eng}
+                    </a>
+                  </Link>
+    <style jsx>{navbarStyles}</style>
+  </>
 
   const Navbar = <nav className="nav-fixed">
                   <div className="nav-container">
@@ -26,26 +66,10 @@ export default function Home() {
                     </div>
                     <div className={`nav-text-container ${navOpen ? "nav-open" : "nav-closed"}`}>
                       <span className="nav-text">
-                          <Link href="#whatIDo">
-                            <a>
-                              {language === 'es' ? "Qué hago" : "What I do"}
-                            </a>
-                          </Link>
-                          <Link href="#about">
-                            <a>
-                              {language === 'es' ? "Sobre mi" : "About me"}
-                            </a>
-                          </Link>
-                          <Link href="#">
-                            <a>
-                              {language === 'es' ? "Proyectos" : "Projects"}
-                            </a>
-                          </Link>
-                          <Link href="#">
-                            <a>
-                              {language === 'es' ? "Contacto" : "Contact"}
-                            </a>
-                          </Link>
+                          {navLink("whatIDo", "Qué hago", "What I do")}
+                          {navLink("about", "Sobre mi", "About me")}
+                          {navLink("projects", "Proyectos", "Projects")}
+                          {navLink("contact", "Contacto", "Contact")}
                       </span>
                       <span className="lang-container">
                         <span className="lang-item" onClick={() => setLanguage('es')}>
@@ -106,12 +130,12 @@ const about = <section className="gen-section" id="about">
         height={250}
       />
       <div className="about-content">
-          <h3>
+          <h2>
           {language === 'es' ? "Sobre mi" : "About me"}
-          </h3>
-          <h4>
+          </h2>
+          <h3>
           {language === 'es' ? "Desarrolladora en Barcelona" : "Developer based in Barcelona"}
-          </h4>
+          </h3>
           <div>
             <p>{language === 'es' ? 
             "Nacida y crecida en Granada, me mudé a Barcelona en 2013 para conseguir mi sueño de trabajar en la industria del turismo y me enamoré de la ciudad. Me considero una persona exigente, perseverante y entusiasta, que trabaja cada día para conseguir sus objetivos." : 
@@ -130,6 +154,25 @@ const about = <section className="gen-section" id="about">
   </div>
 </section>
 
+const projectItem = (title, description, picture, link, index) =>{ 
+return <a className="project-item" key={index} href={link} target="_blank" rel="noreferrer">
+  <div>
+    <Image
+      src={picture}
+      alt={title}
+      layout="responsive"
+      width={100}
+      height={50}
+      />
+  </div>
+  <div className="project-item-title">{title}</div>
+  <div>{description}</div>
+</a>}
+
+const projectsSection = <section className="gen-section projects-sec" id="projects">
+{projects.map((singleProject, i) => projectItem(singleProject.title, singleProject.description, singleProject.image, singleProject.link, `project${i}`))}
+</section>
+
   return (
     <div>
       <Head>
@@ -144,10 +187,11 @@ const about = <section className="gen-section" id="about">
       <main className={styles.main}>
         {whatIDo}
         {about}
+        {projectsSection}
       </main>
 
       <footer className={styles.footer}>
-       
+      Made with ♥ by <a href="https://www.linkedin.com/in/martacamachovargas/" target="_blank" rel="noopener noreferrer">Marta</a>
       </footer>
       <style jsx global>{globalStyles}</style>
     </div>

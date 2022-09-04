@@ -6,3 +6,13 @@
   margin-top: 60px;
 }
 
+.footer {
+  background-color: var(--clr-white);
+  color: var(--clr-black);
+  padding: 20px;
+  text-align: center;
+}
+
+.footer a {
+  text-decoration: underline;
+}

@@ -170,7 +170,12 @@ return <a className="project-item" key={index} href={link} target="_blank" rel="
 </a>}
 
 const projectsSection = <section className="gen-section projects-sec" id="projects">
-{projects.map((singleProject, i) => projectItem(singleProject.title, singleProject.description, singleProject.image, singleProject.link, `project${i}`))}
+  <h2>
+    {language === 'es' ? "Proyectos" : "Projects"}
+  </h2>
+  <div className="projects-sec">
+    {projects.map((singleProject, i) => projectItem(singleProject.title, singleProject.description, singleProject.image, singleProject.link, `project${i}`))}
+  </div>
 </section>
 
   return (

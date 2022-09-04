@@ -108,6 +108,13 @@ export const globalStyles = css.global`
         justify-content: space-between;
     }
 
+    .projects-sec h2 {
+        font-size: var(--fs-h2);
+        text-align: center;
+        width: 100%;
+        margin-top: 0px;
+    }
+
     .project-item {
         max-width: 30%;
         background-color: var(--clr-peach);

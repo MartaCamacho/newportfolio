@@ -185,9 +185,9 @@ const projectsSection = <section className="gen-section projects-sec" id="projec
         <meta name="description" content="Marta Camacho's portfolio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
+      {window.location.pathname !== "/ralo" && <header>
         {Navbar}
-      </header>
+      </header>}
 
       <main className={styles.main}>
         {whatIDo}
@@ -195,9 +195,9 @@ const projectsSection = <section className="gen-section projects-sec" id="projec
         {projectsSection}
       </main>
 
-      <footer className={styles.footer}>
+      {window.location.pathname !== "/ralo" && <footer className={styles.footer}>
       Made with ♥ by <a href="https://www.linkedin.com/in/martacamachovargas/" target="_blank" rel="noopener noreferrer">Marta</a>
-      </footer>
+      </footer>}
       <style jsx global>{globalStyles}</style>
     </div>
   )

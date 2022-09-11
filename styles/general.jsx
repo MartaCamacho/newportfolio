@@ -25,7 +25,7 @@ export const globalStyles = css.global`
     }
 
     .gen-section:nth-child(even) {
-        background-color: var(--clr-blue);
+        background-color: var(--clr-peach);
         color: var(--clr-black);
     }
 
@@ -117,13 +117,15 @@ export const globalStyles = css.global`
 
     .project-item {
         max-width: 30%;
-        background-color: var(--clr-peach);
+        background-color: var(--clr-green);
         margin-bottom: 20px;
         padding: 20px;
+        color: var(--clr-black);
     }
 
     .project-item:hover {
         padding: 30px;
+        width: 110%;
     }
 
     .project-item img,

@@ -19,6 +19,17 @@ export const globalStyles = css.global`
         --fs-h3-mobile: 1.25rem;
         --fs-h4-mobile: 1rem;
     }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        font-size: var(--fs-h2);
+        text-align: center;
+    }
+
     .gen-section {
         width: 100%;
         padding: 4rem 2rem;
@@ -58,7 +69,6 @@ export const globalStyles = css.global`
     }
 
     .what-i-do-text h2 {
-        font-size: var(--fs-h2);
         margin: 20px 0;
         padding: 5px;
         font-weight: normal;
@@ -85,7 +95,6 @@ export const globalStyles = css.global`
     }
 
     .about-content h2 {
-        font-size: var(--fs-h2);
         margin: 0;
     }
 
@@ -113,6 +122,7 @@ export const globalStyles = css.global`
         text-align: center;
         width: 100%;
         margin-top: 0px;
+        padding-bottom: 4rem;
     }
 
     .project-item {
@@ -124,8 +134,8 @@ export const globalStyles = css.global`
     }
 
     .project-item:hover {
-        padding: 30px;
-        width: 110%;
+        background-color: var(--clr-peach);
+        transition: background-color .3s;
     }
 
     .project-item img,
@@ -140,11 +150,17 @@ export const globalStyles = css.global`
     }
 
     /* / projects section */
+    /* contact section */
+    /* / contact section */
 
     @media (max-width: 770px) {
 
         .gen-section {
             padding: 2rem 1rem;
+        }
+
+        h2 {
+            font-size: var(--fs-h2-mobile);
         }
 
         /* what i do */
@@ -159,10 +175,6 @@ export const globalStyles = css.global`
 
         .what-i-do-text h1 {
             font-size: 3rem;
-        }
-    
-        .what-i-do-text h2 {
-            font-size: var(--fs-h2-mobile);
         }
         
         .what-i-do-description {
@@ -182,7 +194,6 @@ export const globalStyles = css.global`
         }
 
         .about-content h2 {
-            font-size: var(--fs-h2-mobile);
             margin: 20px 0;
         }
 

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/router'
 import styles from '../styles/Home.module.css';
 import {globalStyles, navbarStyles} from '../styles/general.jsx';
 
@@ -10,36 +11,44 @@ export default function Home() {
   const [navOpen, setNavOpen] = useState(false);
   const [projects, setProjects] = useState([
     {title: "Gluten free Web",
-    description: "Have you ever wondered anything about coeliac desease? Did you ever feel alone on this? Do you or some one importante for you just become diagnosed? On this web you will be able to find my life experience and some glutenfree recipes to start your journey with me, you are not alone on this!",
+    description: "Have you ever wondered anything about coeliac desease? Did you ever feel alone on this? Do you or some one important for you just become diagnosed? On this web you will be able to find my life experience and some glutenfree recipes to start your journey with me, you are not alone on this!",
+    descripcion: "¿Alguna vez te has preguntado algo sobre celiaquía? ¿Te has sentido sol@ en esto? ¿Tú o alguien importante para ti acaba de ser diagnosticado? En esta web encontrarás mi experiencia y algunas recetas sin gluten para empezar tu viaje conmigo, ¡no estás sol@ en esto!",
     technologies: "HTML5, CSS3, JavaScript, GitHub",
     image: "/gluten.jpg",
     link:"https://martacamacho.github.io/M1-GlutenFreeWeb/"},
     {title: "I<3Hack",
-    description: "I <3 HACK, is the ideal application to find that better half you are looking for to plant your garden of love. An application with the function of finding that person related to you, do not get carried away only by physical appearance but also you will complete a test to find the best possible compatibility with any user of the platform. They say that love is blind ... let's check it then. You also have the events tab available, where the places and the date will appear where you can spend a pleasant evening with a random person for a limited time, on a speed dating format. Your heart is a code, let them hack you.",
+    description: "I <3 HACK, is the ideal application to find that better half you are looking for to plant your garden of love. An application with the function of finding that person related to you, do not get carried away only by physical appearance but also you will complete a test to find the best possible compatibility with any user of the platform. They say that love is blind ... let's check it then. Your heart is a code, let them hack you.",
+    descripcion: "I <3 HACK, es la aplicación ideal para encontrar la otra mitad que buscas para plantar tu jardín del amor. Una aplicación con la función de encontrar esa persona afín a ti, no te dejes llevar solo por la apariencia física sino que también completarás un test para encontrar la mejor compatibilidad con cualquier usuario de la plataforma. Dicen que el amor es ciego ... comprobemoslo. Tu corazón es un codígo, déjate hackear.",
     technologies: "HTML5, CSS3, JavaScript, React, NodeJS, Express, MongoDB, Axios, GitHub",
     image: "/ilovehack.jpg",
     link:"https://i-love-hack.herokuapp.com/"},
     {title: "FitLine",
-    description: "Fitline was born during the covid restrictions for sport lovers who don't want to leave their sport routine behind. In this App you will find the best home workouts, a filtered search between them and a montly calendar that will help you achieve the perfect body for this summer. Also, you will be able to save the videos you loved on your profile, as well as add videos to the community with your favourite workouts.",
+    description: "Fitline was born during the covid restrictions for sport lovers who don't want to leave their sport routine behind. In this App you will find the best home workouts, a filtered search between them and a montly calendar that will help you achieve the perfect body for this summer.",
+    descripcion: "Fitline nació durante las restricciones del covid para los amantes del deporte que no quieren dejar su rutina deportiva descuidada. En esta app encontrarás las mejores rutinas para hacer en casa, una búsquerda con filtros y un calendario mensual que te ayudará a conseguir el cuerpo perfecto para este verano.",
     technologies: "HTML5, CSS3, JavaScript, React, NodeJS, Express, MongoDB, Axios, GitHub",
     image: "/fitline.jpg",
     link:"https://fitline.herokuapp.com/"},
     {title: "Movie Finder",
     description: "Movie finder is the ideal app for finding that movie you are thinking of, save it as favourite and see its details, all in one place!",
+    descripcion: "Movie finder es la app ideal para encontrar esa película en la que estabas pensando, guardarla como favorita y ver sus detalles, ¡todo en el mismo sitio!",
     technologies: "HTML5, CSS3, JavaScript, React (with hooks), Fetch, GitHub",
     image: "/movie.jpg",
     link:"https://movie---finder.herokuapp.com/"},
     {title: "Not Yet Website",
     description: "This is a personal website for a comic trio, with youtube and spotify embeded.",
+    descripcion: "Este proyecto es una web personal para un trío cómico, con Youtube y Spotify integrados",
     technologies: "NextJs (with hooks), styled components, JavaScript, CSS3, react scroll, Github, Netlify",
     image: "/notyet.jpg",
     link:"http://www.notyet.es/"},
     {title: "rALo Website",
     description: "This is a simple presentation website I have made for a friend, SEO friendly.",
+    descripcion: "Esta proyecto es una web simple que hice para un amigo, SEO friendly.",
     technologies: "NextJs (with hooks), JavaScript, CSS3, HTML5, Github",
-    image: undefined,
-    link:""},
+    image: "/raloSite.jpg",
+    link:"/ralo"},
   ]);
+
+  const router = useRouter()
 
   const navLink = (url, spa, eng) => <>
     <Link href={`#${url}`}>
@@ -174,8 +183,13 @@ const projectsSection = <section className="gen-section projects-sec" id="projec
     {language === 'es' ? "Proyectos" : "Projects"}
   </h2>
   <div className="projects-sec">
-    {projects.map((singleProject, i) => projectItem(singleProject.title, singleProject.description, singleProject.image, singleProject.link, `project${i}`))}
+    {projects.map((singleProject, i) => projectItem(singleProject.title, language === "es" ? singleProject.descripcion : singleProject.description, singleProject.image, singleProject.link, `project${i}`))}
   </div>
+</section>
+
+const contactSection = <section className="gen-section" id="contact">
+  <h2>Contact</h2>
+  <div></div>
 </section>
 
   return (
@@ -185,7 +199,7 @@ const projectsSection = <section className="gen-section projects-sec" id="projec
         <meta name="description" content="Marta Camacho's portfolio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {window.location.pathname !== "/ralo" && <header>
+      {router.pathname !== "/ralo" && <header>
         {Navbar}
       </header>}
 
@@ -193,9 +207,10 @@ const projectsSection = <section className="gen-section projects-sec" id="projec
         {whatIDo}
         {about}
         {projectsSection}
+        {contactSection}
       </main>
 
-      {window.location.pathname !== "/ralo" && <footer className={styles.footer}>
+      {router.pathname !== "/ralo" && <footer className={styles.footer}>
       Made with ♥ by <a href="https://www.linkedin.com/in/martacamachovargas/" target="_blank" rel="noopener noreferrer">Marta</a>
       </footer>}
       <style jsx global>{globalStyles}</style>

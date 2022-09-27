@@ -51,13 +51,7 @@ export default function Home() {
     descripcion: "Este proyecto es una web personal para un trío cómico, con Youtube y Spotify integrados",
     technologies: "NextJs (with hooks), styled components, JavaScript, CSS3, react scroll, Github, Netlify",
     image: "/notyet.jpg",
-    link:"http://www.notyet.es/"},
-    {title: "rALo Website",
-    description: "This is a simple presentation website I have made for a friend, SEO friendly.",
-    descripcion: "Esta proyecto es una web simple que hice para un amigo, SEO friendly.",
-    technologies: "NextJs (with hooks), JavaScript, CSS3, HTML5, Github",
-    image: "/raloSite.jpg",
-    link:"/ralo"}
+    link:"http://www.notyet.es/"}
   ]);
 
   const router = useRouter()

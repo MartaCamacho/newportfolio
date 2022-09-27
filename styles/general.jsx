@@ -369,6 +369,12 @@ export const navbarStyles = css`
 
 .nav-text a {
     margin: 0 5px;
+        transition: all .3s;
+}
+
+.nav-text a:hover {
+    text-decoration: underline;
+    transition: all .3s;
 }
 
 .lang-container {

@@ -1,14 +1,12 @@
 import { useState } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
-import Image from 'next/image';
-import { useRouter } from 'next/router'
 import styles from '../styles/Home.module.css';
-import {globalStyles, navbarStyles} from '../styles/general.jsx';
+import {globalStyles} from '../styles/general.jsx';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export default function Home() {
   const [language, setLanguage] = useState('es');
-  const [navOpen, setNavOpen] = useState(false);
   const [projects, setProjects] = useState([
     {title: "Gluten free Web",
     description: "Have you ever wondered anything about coeliac desease? Did you ever feel alone on this? Do you or some one important for you just become diagnosed? On this web you will be able to find my life experience and some glutenfree recipes to start your journey with me, you are not alone on this!",
@@ -54,67 +52,7 @@ export default function Home() {
     link:"http://www.notyet.es/"}
   ]);
 
-  const router = useRouter()
-
-  const navLink = (url, spa, eng) => <>
-    <Link href={`#${url}`}>
-                    <a onClick={() => setNavOpen(false)}>
-                      {language === 'es' ? spa : eng}
-                    </a>
-                  </Link>
-    <style jsx>{navbarStyles}</style>
-  </>
-
-  const Navbar = <nav className="nav-fixed">
-                  <div className="nav-container">
-                  <div className="favicon-back"></div>
-                    <div className="favicon">
-                      MCV
-                    </div>
-                    <div className="hamburger" onClick={() => setNavOpen(!navOpen)}>
-                      {navOpen ? 
-                        <img
-                            src="/close.png"
-                            alt="<a href='https://www.flaticon.com/free-icons/close' title='close icons'>Close icons created by Fuzzee - Flaticon</a>"
-                            width={15}
-                            height={15}
-                          /> : <img
-                            src="/hamburger.png"
-                            alt="<a href='https://www.flaticon.es/iconos-gratis/lista' title='lista iconos'>Lista iconos creados por Freepik - Flaticon</a>"
-                            width={20}
-                            height={15}
-                          />}
-                    </div>
-                    <div className={`nav-text-container ${navOpen ? "nav-open" : "nav-closed"}`}>
-                      <span className="nav-text">
-                          {navLink("whatIDo", "Qué hago", "What I do")}
-                          {navLink("about", "Sobre mi", "About me")}
-                          {navLink("projects", "Proyectos", "Projects")}
-                          {navLink("contact", "Contacto", "Contact")}
-                      </span>
-                      <span className="lang-container">
-                        <span className="lang-item" onClick={() => setLanguage('es')}>
-                          <img
-                            src="/spain.png"
-                            alt="Spanish flag"
-                            width={20}
-                            height={15}
-                          />
-                        </span>
-                        <span className="lang-item" onClick={() => setLanguage('uk')}>
-                          <img
-                            src="/UK.png"
-                            alt="UK flag"
-                            width={20}
-                            height={15}
-                          />
-                        </span>
-                      </span>
-                    </div>
-                  </div>
-                    
-                  <style jsx>{navbarStyles}</style>
-                  </nav>
+  
 
 const whatIDo = <section className="gen-section" id="whatIDo">
   <div className="content">
@@ -244,9 +182,9 @@ const contactSection = <section className="gen-section contact-sec" id="contact"
         <meta name="description" content="Marta Camacho's portfolio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {router.pathname !== "/ralo" && <header>
-        {Navbar}
-      </header>}
+      <header>
+        <Navbar language={language} setLanguage={setLanguage}/>
+      </header>
 
       <main className={styles.main}>
         {whatIDo}
@@ -255,9 +193,7 @@ const contactSection = <section className="gen-section contact-sec" id="contact"
         {contactSection}
       </main>
 
-      {router.pathname !== "/ralo" && <footer className={styles.footer}>
-      Made with ♥ by <a href="https://www.linkedin.com/in/martacamachovargas/" target="_blank" rel="noopener noreferrer">Marta</a>
-      </footer>}
+      <Footer />
       <style jsx global>{globalStyles}</style>
     </div>
   )

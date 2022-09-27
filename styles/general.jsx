@@ -125,17 +125,28 @@ export const globalStyles = css.global`
         padding-bottom: 4rem;
     }
 
-    .project-item {
-        max-width: 30%;
-        background-color: var(--clr-green);
+    .project-item-wrapper {
+        width: 100%;
+        max-width: 33.33%;
         margin-bottom: 20px;
-        padding: 20px;
         color: var(--clr-black);
+    }
+
+    .project-item {
+        display: inline-block;
+        background-color: var(--clr-green);
+        width: calc(100% - 20px);
+        height: 100%;
+        padding: 20px;
+        margin: 0 10px;
+        transition: all .3s;
     }
 
     .project-item:hover {
         background-color: var(--clr-peach);
-        transition: background-color .3s;
+        margin: 0 5px;
+        padding: 25px;
+        transition: all .3s;
     }
 
     .project-item img,
@@ -149,8 +160,63 @@ export const globalStyles = css.global`
         margin: 10px 0 5px;
     }
 
+    .project-item-technologies {
+        margin-top: 10px;
+    }
+
     /* / projects section */
     /* contact section */
+
+    .social-icons {
+        display: flex;
+    }
+
+    .contact-sec {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: var(--fs-h3);
+    }
+
+    .cv-link {
+        font-size: var(--fs-h4);
+        background-color: var(--clr-blue);
+        border: 3px solid var(--clr-pink);
+        border-radius: 6px;
+        padding: 10px 35px;
+        margin: 15px 0; 
+        transition: all .3s;
+    }
+
+    .cv-link:hover {
+        background-color: var(--clr-green);
+        cursor: pointer;
+        transition: all .3s;
+    }
+
+    .social-icons a + a {
+        margin-left: 20px;
+    }
+
+    .social-icons {
+        display: flex;
+        align-items: center;
+    }
+
+    .social-icons a {
+        padding: 2px;
+        transition: all .3s;
+    }
+
+    .social-icons a:hover {
+        filter: invert(100%);
+        transition: all .3s;
+        background-color: var(--clr-white);
+        border-radius: 6px;
+    }
+
     /* / contact section */
 
     @media (max-width: 770px) {

@@ -27,13 +27,25 @@ export default function Home() {
     descripcion: "Fitline nació durante las restricciones del covid para los amantes del deporte que no quieren dejar su rutina deportiva descuidada. En esta app encontrarás las mejores rutinas para hacer en casa, una búsquerda con filtros y un calendario mensual que te ayudará a conseguir el cuerpo perfecto para este verano.",
     technologies: "HTML5, CSS3, JavaScript, React, NodeJS, Express, MongoDB, Axios, GitHub",
     image: "/fitline.jpg",
-    link:"https://fitline.herokuapp.com/"},
+    link:"https://fitline.herokuapp.com/"},,
+    {title: "My former portfolio",
+    description: "The title says everything.",
+    descripcion: "El título lo dice todo... Mi anterior portfolio.",
+    technologies: "React, CSS3, HTML5, Github",
+    image: "/formerportfolio.jpg",
+    link:"https://martacamacho.herokuapp.com/"},
     {title: "Movie Finder",
     description: "Movie finder is the ideal app for finding that movie you are thinking of, save it as favourite and see its details, all in one place!",
     descripcion: "Movie finder es la app ideal para encontrar esa película en la que estabas pensando, guardarla como favorita y ver sus detalles, ¡todo en el mismo sitio!",
     technologies: "HTML5, CSS3, JavaScript, React (with hooks), Fetch, GitHub",
     image: "/movie.jpg",
     link:"https://movie---finder.herokuapp.com/"},
+    {title: "h8together",
+    description: "This is an app made for expressing the things that you hate out loud on the internet.",
+    descripcion: "En esta web podrás gritar esas cosas que odias, alto y claro, en internet.",
+    technologies: "React (with hooks), Semantic UI, Apollo, GraphQL, CSS3, HTML5, Github",
+    image: "/h8together.png",
+    link:"https://h8together.netlify.app/"},
     {title: "Not Yet Website",
     description: "This is a personal website for a comic trio, with youtube and spotify embeded.",
     descripcion: "Este proyecto es una web personal para un trío cómico, con Youtube y Spotify integrados",
@@ -45,7 +57,7 @@ export default function Home() {
     descripcion: "Esta proyecto es una web simple que hice para un amigo, SEO friendly.",
     technologies: "NextJs (with hooks), JavaScript, CSS3, HTML5, Github",
     image: "/raloSite.jpg",
-    link:"/ralo"},
+    link:"/ralo"}
   ]);
 
   const router = useRouter()
@@ -163,33 +175,59 @@ const about = <section className="gen-section" id="about">
   </div>
 </section>
 
-const projectItem = (title, description, picture, link, index) =>{ 
-return <a className="project-item" key={index} href={link} target="_blank" rel="noreferrer">
-  <div>
-    <Image
-      src={picture}
-      alt={title}
-      layout="responsive"
-      width={100}
-      height={50}
-      />
-  </div>
-  <div className="project-item-title">{title}</div>
-  <div>{description}</div>
-</a>}
+const projectItem = (title, description, picture, link, index, technologies) =>{ 
+return <div className="project-item-wrapper" key={index}>
+          <a className="project-item" href={link} target="_blank" rel="noreferrer">
+            <div>
+              <Image
+                src={picture}
+                alt={title}
+                layout="responsive"
+                width={100}
+                height={50}
+                />
+            </div>
+            <div className="project-item-title">{title}</div>
+            <div>{description}</div>
+            <div className="project-item-technologies">{language === 'es' ? "Tecnologías" : "Technologies"}: {technologies}</div>
+          </a>
+      </div> }
 
 const projectsSection = <section className="gen-section projects-sec" id="projects">
   <h2>
     {language === 'es' ? "Proyectos" : "Projects"}
   </h2>
   <div className="projects-sec">
-    {projects.map((singleProject, i) => projectItem(singleProject.title, language === "es" ? singleProject.descripcion : singleProject.description, singleProject.image, singleProject.link, `project${i}`))}
+    {projects.map((singleProject, i) => projectItem(singleProject.title, language === "es" ? singleProject.descripcion : singleProject.description, singleProject.image, singleProject.link, `project${i}`, singleProject.technologies))}
   </div>
 </section>
 
-const contactSection = <section className="gen-section" id="contact">
+const contactSection = <section className="gen-section contact-sec" id="contact">
   <h2>Contact</h2>
-  <div></div>
+  <div>contacto@martacamacho.com</div>
+  <div className="cv-link">
+    <a href="https://drive.google.com/file/d/129EqAOkpVAyGnqkW29vIFLZfc3dhharR/view" target="_blank" rel="noreferrer">
+    CV
+    </a>
+  </div>
+  <div className="social-icons">
+    <a href="https://github.com/MartaCamacho" target="_blank" rel="noreferrer">
+      <Image
+          src="/github.png"
+          alt="Github icon"
+          width={32}
+          height={32}
+        />
+    </a>
+    <a href="https://www.linkedin.com/in/martacamachovargas/" target="_blank" rel="noreferrer">
+      <Image
+          src="https://img.icons8.com/ios-filled/50/000000/linkedin.png"
+          alt="linkedin icon from https://iconos8.es/icons/set/linkedin--white"
+          width={35}
+          height={35}
+        />
+    </a>
+  </div>
 </section>
 
   return (

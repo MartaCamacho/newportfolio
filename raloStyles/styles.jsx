@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css';
 
-export const raloStyles = css`
+export default css`
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 

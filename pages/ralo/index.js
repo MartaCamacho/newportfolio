@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
 import Head from "next/head";
-import Welcome from "../components/Welcome";
-import Body from "../components/Body";
-import Footer from "../components/Footer";
-import {raloStyles} from '../ralo/styles';
+import Welcome from "../../components/Welcome";
+import Body from "../../components/Body";
+import Footer from "../../components/Footer";
+import styles from '../../raloStyles/styles';
 
 export default function IndexPage() {
   const [language, setLanguage] = useState('spanish');
@@ -46,7 +46,7 @@ export default function IndexPage() {
         <Body language={language}/>
         <Footer />
       </div>
-      <style jsx>{raloStyles}</style>
+      <style jsx>{styles}</style>
     </>
   );
 }

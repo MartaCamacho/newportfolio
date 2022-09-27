@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import {raloStyles} from '../ralo/styles';
+import styles from '../raloStyles/styles';
 
 const Footer = () => {
   return (
@@ -53,7 +53,7 @@ const Footer = () => {
           </svg>
           </a>
         </span>
-        <style jsx>{raloStyles}</style>
+        <style jsx>{styles}</style>
     </footer>
   );
 };

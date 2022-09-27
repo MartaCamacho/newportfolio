@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import {raloStyles} from '../ralo/styles';
+import styles from '../raloStyles/styles';
 
 const Welcome = ({changeLanguage, language}, props) => {
   return (
@@ -70,7 +70,7 @@ const Welcome = ({changeLanguage, language}, props) => {
             </div>
           </div>
         </div>
-        <style jsx>{raloStyles}</style>
+        <style jsx>{styles}</style>
     </section>
   );
 };

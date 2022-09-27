@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="footer-container">
         <div className="footer-left-side footer-element">
-        <Image
+        <img
                 className="logo"
                 src="/ralo/logo.jpg"
                 alt="content"

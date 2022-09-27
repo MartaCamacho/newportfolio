@@ -79,12 +79,12 @@ export default function Home() {
                     </div>
                     <div className="hamburger" onClick={() => setNavOpen(!navOpen)}>
                       {navOpen ? 
-                        <Image
+                        <img
                             src="/close.png"
                             alt="<a href='https://www.flaticon.com/free-icons/close' title='close icons'>Close icons created by Fuzzee - Flaticon</a>"
                             width={15}
                             height={15}
-                          /> : <Image
+                          /> : <img
                             src="/hamburger.png"
                             alt="<a href='https://www.flaticon.es/iconos-gratis/lista' title='lista iconos'>Lista iconos creados por Freepik - Flaticon</a>"
                             width={20}
@@ -100,7 +100,7 @@ export default function Home() {
                       </span>
                       <span className="lang-container">
                         <span className="lang-item" onClick={() => setLanguage('es')}>
-                          <Image
+                          <img
                             src="/spain.png"
                             alt="Spanish flag"
                             width={20}
@@ -108,7 +108,7 @@ export default function Home() {
                           />
                         </span>
                         <span className="lang-item" onClick={() => setLanguage('uk')}>
-                          <Image
+                          <img
                             src="/UK.png"
                             alt="UK flag"
                             width={20}
@@ -139,7 +139,7 @@ const whatIDo = <section className="gen-section" id="whatIDo">
           "I have knowledge in HTML5 / CSS3 / JavaScript / Reactjs / Nodejs / Nextjs and some other cool libraries and frameworks that give me the ability to create, format and layout websites. "}
         </div>
       </span>
-      <Image
+      <img
         src="/undraw_programmer.svg"
         alt="programmer"
         width={250}
@@ -150,7 +150,7 @@ const whatIDo = <section className="gen-section" id="whatIDo">
 
 const about = <section className="gen-section" id="about">
   <div className="content">
-      <Image
+      <img
         src="/fotoIH.jpg"
         alt="programmer"
         width={250}
@@ -186,7 +186,7 @@ const projectItem = (title, description, picture, link, index, technologies) =>{
 return <div className="project-item-wrapper" key={index}>
           <a className="project-item" href={link} target="_blank" rel="noreferrer">
             <div>
-              <Image
+              <img
                 src={picture}
                 alt={title}
                 layout="responsive"
@@ -223,7 +223,7 @@ const contactSection = <section className="gen-section contact-sec" id="contact"
   </div>
   <div className="social-icons">
     <a href="https://github.com/MartaCamacho" target="_blank" rel="noreferrer">
-      <Image
+      <img
           src="/github.png"
           alt="Github icon"
           width={42}
@@ -232,7 +232,7 @@ const contactSection = <section className="gen-section contact-sec" id="contact"
         />
     </a>
     <a href="https://www.linkedin.com/in/martacamachovargas/" target="_blank" rel="noreferrer">
-      <Image
+      <img
           src="https://img.icons8.com/ios-filled/50/000000/linkedin.png"
           alt="linkedin icon from https://iconos8.es/icons/set/linkedin--white"
           width={45}

@@ -160,6 +160,11 @@ export const globalStyles = css.global`
         border-radius: 8px;
     }
 
+    .project-item img {
+        width: 100%;
+        height: 100%;
+    }
+
     .project-item-title {
         font-size: var(--fs-desktop);
         font-weight: bold;

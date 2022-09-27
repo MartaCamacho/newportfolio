@@ -6,7 +6,7 @@ const Body = ({language}, props) => {
     <section className="body-section-container">
           <div className="body-section-item">
               <span className="body-section-image">
-                <Image
+                <img
                   src="/ralo/poe.png"
                   alt="content"
                   width="300"
@@ -29,7 +29,7 @@ const Body = ({language}, props) => {
           </div>
           <div className="body-section-item">
               <span className="body-section-image">
-                <Image
+                <img
                   src="/ralo/fic.png"
                   alt="content"
                   width="300"
@@ -51,7 +51,7 @@ const Body = ({language}, props) => {
           </div>
           <div className="body-section-item">
               <span className="body-section-image">
-                  <Image
+                  <img
                     src="/ralo/crea.png"
                     alt="content"
                     width="300"
@@ -73,7 +73,7 @@ const Body = ({language}, props) => {
           </div>
           <div className="body-section-item">
               <span className="body-section-image">
-                <Image
+                <img
                   className=""
                   src="/ralo/preguntas.png"
                   alt="content"

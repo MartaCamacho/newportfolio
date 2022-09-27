@@ -8,7 +8,7 @@ const Welcome = ({changeLanguage, language}, props) => {
           <div className="top-section-container">
             <div className="top-image"></div>
               <span className="top-flag-spain-image" onClick={() => changeLanguage('spanish')}>
-                <Image
+                <img
                   alt="Ralo background"
                   src="/ralo/spain.png"
                   width="20"
@@ -16,7 +16,7 @@ const Welcome = ({changeLanguage, language}, props) => {
                 />
               </span>
               <span className="top-flag-uk-image" onClick={() => changeLanguage('english')}>
-                <Image
+                <img
                   alt="Ralo background"
                   src="/ralo/uk.webp"
                   width="20"
@@ -27,7 +27,7 @@ const Welcome = ({changeLanguage, language}, props) => {
           <div className="top-text-container">
             <div className="top-text-left-side">
               <div>
-                <Image
+                <img
                 alt="rALo logo"
                 className="ralo-logo-rounded"
                 src="/ralo/logo.jpg"

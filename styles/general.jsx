@@ -51,6 +51,7 @@ export const globalStyles = css.global`
         margin: 0 auto;
     }
 
+
     /* what I do section */
 
     #whatIDo .content {
@@ -88,6 +89,11 @@ export const globalStyles = css.global`
     #about .content {
         display: flex;
         justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .gen-section#about .content img {
+        border-radius: 50%;
     }
 
     .about-content {
@@ -103,7 +109,7 @@ export const globalStyles = css.global`
         border: 1px solid var(--clr-black);
         background-color: var(--clr-pink);
         padding: 5px;
-        margin: 10px 0 0;
+        margin: 10px 0;
     }
 
     /* / about section */
@@ -169,6 +175,13 @@ export const globalStyles = css.global`
 
     .social-icons {
         display: flex;
+        height: 100%;
+        min-height: 32px;
+    }
+
+    .social-icons a {
+        min-height: 37px;
+        min-width: 37px;
     }
 
     .contact-sec {
@@ -178,6 +191,15 @@ export const globalStyles = css.global`
         align-items: center;
         justify-content: center;
         font-size: var(--fs-h3);
+    }
+
+    .email-link {
+        margin: 15px 0;
+    }
+
+    .email-link:hover {
+        transition: all .3s;
+        text-decoration: underline;
     }
 
     .cv-link {
@@ -196,13 +218,14 @@ export const globalStyles = css.global`
         transition: all .3s;
     }
 
-    .social-icons a + a {
-        margin-left: 20px;
-    }
-
     .social-icons {
         display: flex;
         align-items: center;
+        margin: 15px 0 0; 
+    }
+
+    .social-icons a + a {
+        margin-left: 30px;
     }
 
     .social-icons a {
@@ -266,7 +289,6 @@ export const globalStyles = css.global`
         .about-content h3 {
             font-size: var(--fs-h3-mobile);
             padding: 5px;
-            margin: 10px 0 0;
         }
 
         /* projects section */
@@ -278,6 +300,12 @@ export const globalStyles = css.global`
 
         .project-item {
             max-width: 100%;
+        }
+
+        .project-item-wrapper {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
         }
     }
 `;

@@ -78,12 +78,18 @@ export default function Home() {
                       MCV
                     </div>
                     <div className="hamburger" onClick={() => setNavOpen(!navOpen)}>
-                      <Image
+                      {navOpen ? 
+                        <Image
+                            src="/close.png"
+                            alt="<a href='https://www.flaticon.com/free-icons/close' title='close icons'>Close icons created by Fuzzee - Flaticon</a>"
+                            width={15}
+                            height={15}
+                          /> : <Image
                             src="/hamburger.png"
                             alt="<a href='https://www.flaticon.es/iconos-gratis/lista' title='lista iconos'>Lista iconos creados por Freepik - Flaticon</a>"
                             width={20}
                             height={15}
-                          />
+                          />}
                     </div>
                     <div className={`nav-text-container ${navOpen ? "nav-open" : "nav-closed"}`}>
                       <span className="nav-text">
@@ -145,10 +151,11 @@ const whatIDo = <section className="gen-section" id="whatIDo">
 const about = <section className="gen-section" id="about">
   <div className="content">
       <Image
-        src="/about.svg"
+        src="/fotoIH.jpg"
         alt="programmer"
         width={250}
         height={250}
+        layout="fixed"
       />
       <div className="about-content">
           <h2>
@@ -203,8 +210,12 @@ const projectsSection = <section className="gen-section projects-sec" id="projec
 </section>
 
 const contactSection = <section className="gen-section contact-sec" id="contact">
-  <h2>Contact</h2>
-  <div>contacto@martacamacho.com</div>
+  <h2>Contact{language === 'es' ? "o" : ""}</h2>
+  <div className="email-link">
+    <a href="mailto:contacto@martacamacho.com">
+      contacto@martacamacho.com
+    </a>
+  </div>
   <div className="cv-link">
     <a href="https://drive.google.com/file/d/129EqAOkpVAyGnqkW29vIFLZfc3dhharR/view" target="_blank" rel="noreferrer">
     CV
@@ -215,16 +226,18 @@ const contactSection = <section className="gen-section contact-sec" id="contact"
       <Image
           src="/github.png"
           alt="Github icon"
-          width={32}
-          height={32}
+          width={42}
+          height={42}
+          layout="responsive"
         />
     </a>
     <a href="https://www.linkedin.com/in/martacamachovargas/" target="_blank" rel="noreferrer">
       <Image
           src="https://img.icons8.com/ios-filled/50/000000/linkedin.png"
           alt="linkedin icon from https://iconos8.es/icons/set/linkedin--white"
-          width={35}
-          height={35}
+          width={45}
+          height={45}
+          layout="responsive"
         />
     </a>
   </div>

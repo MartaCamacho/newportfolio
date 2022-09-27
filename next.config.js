@@ -40,4 +40,4 @@ module.exports = withPlugins([
       quality: 75,
     },
   }],
-]), nextConfig;
+  nextConfig]) ;
